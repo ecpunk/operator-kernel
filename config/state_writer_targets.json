@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "enabled": true,
+  "max_history_entries": 50,
+  "max_summary_length": 180,
+  "max_recommendation_length": 220,
+  "trusted_targets": [
+    "/opt/stack/services/apps/dashboard/status.json",
+    "/opt/stack/services/projects/operator-kernel/artifacts/state/operator_state.json"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_comment": "Real-world operational task phrases for Stage 5 draft sampling. These mirror actual tasks operators submit against this system.",
+  "tasks": [
+    "plex is not responding after a host reboot, diagnose and propose safe recovery lane",
+    "sonarr web UI unavailable after docker update, propose safe recovery",
+    "radarr container keeps restarting, investigate and draft recovery lane",
+    "bazarr subtitle sync stopped working, diagnose and suggest lane",
+    "home assistant dashboard not loading, propose safe recovery lane",
+    "sabnzbd queue is stuck and web UI unresponsive, draft safe intervention lane",
+    "plex transcoding sessions are failing with codec errors, propose diagnostic lane",
+    "sonarr cannot connect to indexers, suggest a safe connectivity recovery lane",
+    "radarr is missing movies after library scan, propose safe metadata repair lane",
+    "home assistant automations stopped firing after upgrade, draft investigation lane",
+    "media server running out of disk space on /data, propose safe cleanup lane",
+    "docker compose service fails health check on restart, propose safe recovery",
+    "scheduled backup to NAS is timing out, draft investigation and recovery lane",
+    "plex library scan running indefinitely, investigate and propose safe interrupt lane",
+    "sabnzbd is rejecting downloads with SSL certificate errors, propose safe resolution lane"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": ["version", "updated_at", "records"],
+  "properties": {
+    "version": { "type": "integer" },
+    "updated_at": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "file_type",
+          "original_path",
+          "archived_path",
+          "reasons",
+          "archived_at",
+          "status"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "file_type": { "type": "string", "enum": ["plan", "proof"] },
+          "original_path": { "type": "string" },
+          "archived_path": { "type": "string" },
+          "reasons": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["age", "count"] }
+          },
+          "archived_at": { "type": "string" },
+          "status": { "type": "string", "enum": ["archived", "purged"] },
+          "purged_at": { "type": "string" }
+        }
+      }
+    }
+  }
+}

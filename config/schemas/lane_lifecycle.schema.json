@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": ["version", "actions"],
+  "properties": {
+    "version": { "type": "integer" },
+    "actions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["state"],
+        "properties": {
+          "state": { "type": "string", "enum": ["candidate", "active"] }
+        }
+      }
+    }
+  }
+}

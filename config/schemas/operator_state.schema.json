@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "required": ["version", "updated_at", "last_event", "history"],
+  "properties": {
+    "version": { "type": "integer" },
+    "updated_at": { "type": "string" },
+    "last_event": {
+      "type": "object",
+      "required": [
+        "timestamp",
+        "plan_id",
+        "task",
+        "risk",
+        "apply",
+        "action_id",
+        "verification_status",
+        "proof_path",
+        "summary",
+        "top_recommendation"
+      ],
+      "properties": {
+        "timestamp": { "type": "string" },
+        "plan_id": { "type": "string" },
+        "task": { "type": "string" },
+        "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "apply": { "type": "boolean" },
+        "action_id": { "type": "string" },
+        "verification_status": { "type": "string" },
+        "proof_path": { "type": "string" },
+        "summary": { "type": "string" },
+        "top_recommendation": { "type": "string" }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "plan_id",
+          "task",
+          "risk",
+          "apply",
+          "action_id",
+          "verification_status",
+          "proof_path",
+          "summary",
+          "top_recommendation"
+        ],
+        "properties": {
+          "timestamp": { "type": "string" },
+          "plan_id": { "type": "string" },
+          "task": { "type": "string" },
+          "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+          "apply": { "type": "boolean" },
+          "action_id": { "type": "string" },
+          "verification_status": { "type": "string" },
+          "proof_path": { "type": "string" },
+          "summary": { "type": "string" },
+          "top_recommendation": { "type": "string" }
+        }
+      }
+    }
+  }
+}

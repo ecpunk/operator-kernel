@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "required": [
+    "action_id",
+    "lane",
+    "lane_class",
+    "description",
+    "service",
+    "endpoint",
+    "log_tail",
+    "http_ok_prefixes",
+    "warmup_probe_retries",
+    "warmup_probe_sleep_seconds",
+    "rollback",
+    "verify"
+  ],
+  "properties": {
+    "action_id": { "type": "string" },
+    "lane": { "type": "string" },
+    "lane_class": {
+      "type": "string",
+      "enum": ["http_service_recovery"]
+    },
+    "description": { "type": "string" },
+    "service": { "type": "string" },
+    "endpoint": { "type": "string" },
+    "log_tail": { "type": "integer" },
+    "http_ok_prefixes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "warmup_probe_retries": { "type": "integer" },
+    "warmup_probe_sleep_seconds": { "type": "integer" },
+    "verify_probes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "command"],
+        "properties": {
+          "name": { "type": "string" },
+          "command": { "type": "string" },
+          "expected_substring": { "type": "string" },
+          "required": { "type": "boolean" }
+        }
+      }
+    },
+    "rollback": { "type": "array", "items": { "type": "string" } },
+    "verify": { "type": "array", "items": { "type": "string" } }
+  }
+}

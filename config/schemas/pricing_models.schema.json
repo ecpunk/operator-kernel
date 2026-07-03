@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "required": ["version", "providers"],
+  "properties": {
+    "version": { "type": "integer" },
+    "providers": {
+      "type": "object",
+      "properties": {
+        "openai": {
+          "type": "object",
+          "required": ["models"],
+          "properties": {
+            "models": {
+              "type": "object",
+              "properties": {
+                "gpt-5": {
+                  "type": "object",
+                  "required": ["input_per_million_usd", "output_per_million_usd"],
+                  "properties": {
+                    "input_per_million_usd": { "type": "number" },
+                    "output_per_million_usd": { "type": "number" }
+                  }
+                },
+                "gpt-5-mini": {
+                  "type": "object",
+                  "required": ["input_per_million_usd", "output_per_million_usd"],
+                  "properties": {
+                    "input_per_million_usd": { "type": "number" },
+                    "output_per_million_usd": { "type": "number" }
+                  }
+                },
+                "gpt-5-nano": {
+                  "type": "object",
+                  "required": ["input_per_million_usd", "output_per_million_usd"],
+                  "properties": {
+                    "input_per_million_usd": { "type": "number" },
+                    "output_per_million_usd": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "anthropic": {
+          "type": "object",
+          "required": ["models"],
+          "properties": {
+            "models": {
+              "type": "object",
+              "properties": {
+                "claude-sonnet-4": {
+                  "type": "object",
+                  "required": ["input_per_million_usd", "output_per_million_usd"],
+                  "properties": {
+                    "input_per_million_usd": { "type": "number" },
+                    "output_per_million_usd": { "type": "number" }
+                  }
+                },
+                "claude-opus-4": {
+                  "type": "object",
+                  "required": ["input_per_million_usd", "output_per_million_usd"],
+                  "properties": {
+                    "input_per_million_usd": { "type": "number" },
+                    "output_per_million_usd": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+[Unit]
+Description=Operator Kernel Stage 3 Operations Orchestrator
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/stack/services/projects/operator-kernel
+Environment="STAGE3_OPS_ARGS=--days 7"
+Environment="PYTHONPATH=/opt/stack/services/projects/operator-kernel/src"
+EnvironmentFile=-/opt/stack/services/projects/operator-kernel/systemd/operator-kernel-stage3-ops.env
+ExecStart=/bin/bash -lc '/usr/bin/python3 /opt/stack/services/projects/operator-kernel/src/operator_ops/run_stage3_operations.py ${STAGE3_OPS_ARGS}'
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

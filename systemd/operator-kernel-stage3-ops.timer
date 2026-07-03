@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Operator Kernel Stage 3 Operations every 30 minutes
+
+[Timer]
+OnCalendar=*:0/30
+Persistent=true
+Unit=operator-kernel-stage3-ops.service
+
+[Install]
+WantedBy=timers.target

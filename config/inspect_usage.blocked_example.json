@@ -1,0 +1,6 @@
+{
+  "provider": "openai",
+  "model": "gpt-5-mini",
+  "input_tokens": 1200,
+  "output_tokens": 300
+}

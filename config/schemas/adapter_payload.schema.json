@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [
+    "adapter",
+    "channel",
+    "utterance",
+    "timestamp"
+  ],
+  "properties": {
+    "adapter": { "type": "string", "enum": ["voice", "mobile"] },
+    "channel": { "type": "string", "enum": ["voice", "text"] },
+    "utterance": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "device_id": { "type": "string" },
+    "locale": { "type": "string" },
+    "metadata": { "type": "object" }
+  }
+}

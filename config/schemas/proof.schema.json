@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "proof_version",
+    "generated_at",
+    "plan_id",
+    "task",
+    "lane",
+    "precheck",
+    "command_transcript",
+    "verification",
+    "rollback",
+    "execution_notes",
+    "observations",
+    "recommendations"
+  ],
+  "properties": {
+    "proof_version": { "type": "integer" },
+    "generated_at": { "type": "string" },
+    "plan_id": { "type": "string" },
+    "task": { "type": "string" },
+    "lane": { "type": "string" },
+    "precheck": { "type": "object" },
+    "command_transcript": { "type": "array", "items": { "type": "object" } },
+    "verification": { "type": "object" },
+    "rollback": { "type": "array", "items": { "type": "string" } },
+    "execution_notes": { "type": "array", "items": { "type": "string" } },
+    "observations": { "type": "array", "items": { "type": "string" } },
+    "recommendations": { "type": "array", "items": { "type": "object" } }
+  }
+}

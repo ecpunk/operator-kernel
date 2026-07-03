@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": ["version", "mappings"],
+  "properties": {
+    "version": { "type": "integer" },
+    "resolution_policy": {
+      "type": "object",
+      "properties": {
+        "prefer_whole_word": { "type": "boolean" },
+        "prefer_earliest_mention": { "type": "boolean" },
+        "prefer_longest_keyword": { "type": "boolean" },
+        "use_mapping_priority": { "type": "boolean" }
+      }
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["keywords", "action_id"],
+        "properties": {
+          "keywords": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "priority": { "type": "integer" },
+          "action_id": { "type": "string" }
+        }
+      }
+    }
+  }
+}

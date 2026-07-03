@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "required": [
+    "plan_id",
+    "created_at",
+    "lane",
+    "channel",
+    "mode",
+    "task",
+    "risk",
+    "steps",
+    "rollback",
+    "verify",
+    "action_id",
+    "recommendations",
+    "approval_token",
+    "status"
+  ],
+  "properties": {
+    "plan_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "lane": { "type": "string" },
+    "channel": { "type": "string" },
+    "mode": { "type": "string" },
+    "task": { "type": "string" },
+    "risk": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "steps": { "type": "array", "items": { "type": "string" } },
+    "rollback": { "type": "array", "items": { "type": "string" } },
+    "verify": { "type": "array", "items": { "type": "string" } },
+    "action_id": { "type": "string" },
+    "recommendations": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "approval_token": { "type": "string" },
+    "status": { "type": "string" }
+  }
+}

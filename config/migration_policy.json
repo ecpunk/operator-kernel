@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "policies": [
+    {
+      "id": "context_sources",
+      "path": "config/context_sources.json",
+      "required_version": 1
+    },
+    {
+      "id": "guardrails",
+      "path": "config/guardrails.json",
+      "required_version": 1
+    },
+    {
+      "id": "notify",
+      "path": "config/notify.json",
+      "required_version": 1
+    },
+    {
+      "id": "pricing_models",
+      "path": "config/pricing_models.json",
+      "required_version": 1
+    },
+    {
+      "id": "lane_catalog",
+      "path": "config/lane_catalog.json",
+      "required_version": 1
+    },
+    {
+      "id": "observation_signatures",
+      "path": "config/observation_signatures.json",
+      "required_version": 1
+    },
+    {
+      "id": "state_writer_targets",
+      "path": "config/state_writer_targets.json",
+      "required_version": 1
+    },
+    {
+      "id": "lane_lifecycle",
+      "path": "config/lane_lifecycle.json",
+      "required_version": 1
+    }
+  ]
+}

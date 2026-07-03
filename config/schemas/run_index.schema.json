@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "required": ["version", "updated_at", "runs"],
+  "properties": {
+    "version": { "type": "integer" },
+    "updated_at": { "type": "string" },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "timestamp",
+          "mode",
+          "run_type",
+          "task",
+          "plan_id",
+          "action_id",
+          "status"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "mode": { "type": "string" },
+          "run_type": { "type": "string", "enum": ["prod", "test", "drill"] },
+          "task": { "type": "string" },
+          "plan_id": { "type": "string" },
+          "action_id": { "type": "string" },
+          "status": { "type": "string" },
+          "proof_path": { "type": "string" },
+          "verification_status": { "type": "string" },
+          "recommendation_count": { "type": "integer" },
+          "inspect_branch": { "type": "string", "enum": ["lane_matched", "open_ended"] },
+          "inspect_token_estimate": { "type": "integer", "minimum": 0 },
+          "inspect_estimated_cost_usd": { "type": "number", "minimum": 0 },
+          "inspect_cost_source": { "type": "string", "enum": ["heuristic", "provider_usage"] },
+          "inspect_provider": { "type": "string" },
+          "inspect_model": { "type": "string" },
+          "inspect_input_tokens": { "type": "integer", "minimum": 0 },
+          "inspect_output_tokens": { "type": "integer", "minimum": 0 },
+          "inspect_cited_sources": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

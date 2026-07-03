@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "operator-kernel"
+version = "0.1.0"
+description = "Deterministic operator kernel contract and policy primitives"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Operator Kernel Contributors" }
+]
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["operator_kernel*"]

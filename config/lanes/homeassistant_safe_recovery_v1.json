@@ -1,0 +1,33 @@
+{
+  "action_id": "homeassistant_safe_recovery_v1",
+  "lane": "media_incident",
+  "lane_class": "http_service_recovery",
+  "description": "Safely recover Home Assistant availability using non-destructive checks and optional controlled restart.",
+  "service": "homeassistant",
+  "endpoint": "http://127.0.0.1:8123",
+  "log_tail": 40,
+  "http_ok_prefixes": [
+    "HTTP_2",
+    "HTTP_3"
+  ],
+  "warmup_probe_retries": 4,
+  "warmup_probe_sleep_seconds": 3,
+  "verify_probes": [
+    {
+      "name": "homeassistant_ui_title",
+      "command": "curl -sS -m 5 http://127.0.0.1:8123 | head -c 8000",
+      "expected_substring": "<title>Home Assistant</title>",
+      "required": true
+    }
+  ],
+  "rollback": [
+    "Restore prior service config snapshot if a config mutation is applied.",
+    "Restart service with known-good compose definition.",
+    "Re-verify endpoint and recent log stability."
+  ],
+  "verify": [
+    "Service container is present and running.",
+    "Service web endpoint responds with healthy HTTP status.",
+    "Recent logs do not show repeating fatal startup error."
+  ]
+}

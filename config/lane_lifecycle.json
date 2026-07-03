@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "actions": {
+    "plex_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "sonarr_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "radarr_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "bazarr_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "homeassistant_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "sabnzbd_safe_recovery_v1": {
+      "state": "candidate"
+    },
+    "homeassistant_event_queue_recovery_v1": {
+      "state": "active"
+    },
+    "portainer_docker_volume_recovery_v1": {
+      "state": "active"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": ["version", "rules"],
+  "properties": {
+    "version": { "type": "integer" },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "match_any",
+          "severity",
+          "confidence",
+          "recommendation",
+          "focus_step",
+          "doc_target"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "match_any": { "type": "array", "items": { "type": "string" } },
+          "severity": { "type": "string" },
+          "confidence": { "type": "number" },
+          "recommendation": { "type": "string" },
+          "focus_step": { "type": "string" },
+          "doc_target": { "type": "string" }
+        }
+      }
+    }
+  }
+}

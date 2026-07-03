@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "version",
+    "enabled",
+    "max_history_entries",
+    "max_summary_length",
+    "max_recommendation_length",
+    "trusted_targets"
+  ],
+  "properties": {
+    "version": { "type": "integer" },
+    "enabled": { "type": "boolean" },
+    "max_history_entries": { "type": "integer" },
+    "max_summary_length": { "type": "integer" },
+    "max_recommendation_length": { "type": "integer" },
+    "trusted_targets": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "allowed_modes": [
+    "inspect",
+    "propose",
+    "execute"
+  ],
+  "default_lane": "media_incident",
+  "channel_allowlist": [
+    "text",
+    "voice"
+  ],
+  "context": {
+    "max_loaded_sources": 12,
+    "max_preview_lines_per_source": 20
+  },
+  "execution": {
+    "require_approval_for_execute": true,
+    "token_min_length": 8,
+    "max_plan_age_minutes": 240,
+    "apply_blocked_risks": [
+      "high",
+      "critical"
+    ],
+    "allowed_plan_risks": [
+      "low",
+      "medium",
+      "high",
+      "critical"
+    ],
+    "apply_requires_action_id": true
+  },
+  "budgets": {
+    "max_prompt_tokens": 12000,
+    "max_daily_tokens": 120000
+  },
+  "artifacts": {
+    "max_plan_files": 300,
+    "max_plan_age_days": 30,
+    "max_proof_files": 600,
+    "max_proof_age_days": 45,
+    "max_run_index_entries": 2000,
+    "soft_deprecate_enabled": true,
+    "archive_retention_days": 120
+  },
+  "propose": {
+    "recommendation_reorder_min_confidence": 0.9
+  },
+  "stage4_inspect": {
+    "enforce_open_ended_thresholds": true,
+    "min_traceability_ratio": 0.98,
+    "max_open_ended_token_estimate": 384,
+    "max_open_ended_estimated_cost_usd": 0.000768
+  },
+  "stage5_drafts": {
+    "primary_strategy": "evidence_driven",
+    "fallback_strategy": "template_first",
+    "advisory_only_strategies": [
+      "nearest_lane"
+    ],
+    "min_recommend_score": 60,
+    "require_schema_valid": true,
+    "require_non_placeholder_service": true
+  },
+  "scorecard": {
+    "stage_gate_fail_closed": true,
+    "default_window_days": 7,
+    "fail_closed_on": [
+      "yellow",
+      "red"
+    ],
+    "thresholds": {
+      "green_min_confidence_score": 85.0,
+      "yellow_min_confidence_score": 70.0,
+      "min_execute_verification_success_pct": 85.0,
+      "min_test_pass_rate_pct": 85.0,
+      "min_proof_pack_completeness_pct": 98.0,
+      "max_duplicate_run_ids": 0
+    }
+  },
+  "service_scorecards": {
+    "stage_gate_fail_closed": true,
+    "default_window_days": 7,
+    "ignore_action_ids": [
+      "none"
+    ],
+    "onboarding": {
+      "candidate_gate_exempt": true
+    },
+    "fail_closed_on": [
+      "yellow",
+      "red"
+    ],
+    "thresholds": {
+      "green_min_verification_success_prod_pct": 90.0,
+      "yellow_min_verification_success_prod_pct": 70.0,
+      "min_execute_prod_total": 1
+    }
+  },
+  "stage2": {
+    "soak_required": true,
+    "soak_min_snapshots": 3,
+    "soak_window_hours": 24,
+    "exit_requirements": {
+      "require_stage_scorecard_gate_pass": true,
+      "require_service_scorecard_gate_pass": true,
+      "require_migration_policy_validation": true
+    }
+  },
+  "stage3_operations": {
+    "allow_unattended_delta_apply": false,
+    "alert_retry_max_attempts": 3,
+    "alert_retry_backoff_seconds": 2,
+    "alert_dedupe_minutes": 30
+  },
+  "learning": {
+    "review_only": true,
+    "default_window_days": 7,
+    "min_task_recurrence": 3,
+    "min_failure_recurrence": 2,
+    "max_suggestions": 12,
+    "apply_requires_approval": true,
+    "approval_token_min_length": 8,
+    "apply_allowed_target_globs": [
+      "10-CONCEPT/OPERATOR_KERNEL_CONCEPT.md",
+      "artifacts/runbooks/runbook_*.md"
+    ]
+  }
+}

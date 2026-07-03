@@ -1,0 +1,22 @@
+# Python cache and bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local virtual environments
+.venv/
+venv/
+
+# Local editor and OS noise
+.vscode/
+.DS_Store
+
+# Runtime logs and temp files
+*.log
+*.tmp
+
+# Generated runtime artifacts
+artifacts/**
+
+# Keep docs and source as the repository of record

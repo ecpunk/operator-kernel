@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": ["version", "enabled", "defaults", "routes"],
+  "properties": {
+    "version": { "type": "integer" },
+    "enabled": { "type": "boolean" },
+    "defaults": {
+      "type": "object",
+      "required": ["sender", "timeout_seconds", "max_attempts", "backoff_seconds", "max_event_seconds", "emit_milestones"],
+      "properties": {
+        "sender": { "type": "string" },
+        "timeout_seconds": { "type": "integer" },
+        "max_attempts": { "type": "integer" },
+        "backoff_seconds": { "type": "integer" },
+        "max_event_seconds": { "type": "integer" },
+        "emit_milestones": { "type": "boolean" }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "enabled", "target", "url", "timeout_seconds", "max_attempts", "backoff_seconds", "headers", "include_sources", "include_statuses", "include_events", "include_milestones"],
+        "properties": {
+          "name": { "type": "string" },
+          "enabled": { "type": "boolean" },
+          "target": { "type": "string", "enum": ["discord_webhook", "webhook_json"] },
+          "url": { "type": "string" },
+          "username": { "type": "string" },
+          "content_prefix": { "type": "string" },
+          "timeout_seconds": { "type": "integer" },
+          "max_attempts": { "type": "integer" },
+          "backoff_seconds": { "type": "integer" },
+          "headers": { "type": "object" },
+          "include_sources": { "type": "array", "items": { "type": "string" } },
+          "include_statuses": { "type": "array", "items": { "type": "string" } },
+          "include_events": { "type": "array", "items": { "type": "string" } },
+          "include_milestones": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

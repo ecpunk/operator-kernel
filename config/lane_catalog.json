@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "resolution_policy": {
+    "prefer_whole_word": true,
+    "prefer_earliest_mention": true,
+    "prefer_longest_keyword": true,
+    "use_mapping_priority": true
+  },
+  "mappings": [
+    {
+      "keywords": [
+        "plex"
+      ],
+      "priority": 100,
+      "action_id": "plex_safe_recovery_v1"
+    },
+    {
+      "keywords": [
+        "sonarr"
+      ],
+      "priority": 100,
+      "action_id": "sonarr_safe_recovery_v1"
+    },
+    {
+      "keywords": [
+        "radarr"
+      ],
+      "priority": 100,
+      "action_id": "radarr_safe_recovery_v1"
+    },
+    {
+      "keywords": [
+        "bazarr"
+      ],
+      "priority": 100,
+      "action_id": "bazarr_safe_recovery_v1"
+    },
+    {
+      "keywords": [
+        "home assistant",
+        "homeassistant"
+      ],
+      "priority": 100,
+      "action_id": "homeassistant_safe_recovery_v1"
+    },
+    {
+      "keywords": [
+        "sabnzbd",
+        "sab"
+      ],
+      "priority": 90,
+      "action_id": "sabnzbd_safe_recovery_v1"
+    },
+    {
+      "action_id": "homeassistant_event_queue_recovery_v1",
+      "keywords": [
+        "homeassistant",
+        "automation"
+      ],
+      "priority": 100
+    },
+    {
+      "action_id": "portainer_docker_volume_recovery_v1",
+      "keywords": [
+        "docker",
+        "portainer",
+        "volume"
+      ],
+      "priority": 100
+    }
+  ]
+}

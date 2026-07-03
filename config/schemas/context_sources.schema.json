@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": ["version", "description", "sources"],
+  "properties": {
+    "version": { "type": "integer" },
+    "description": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "required"],
+        "properties": {
+          "id": { "type": "string" },
+          "path": { "type": "string" },
+          "required": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

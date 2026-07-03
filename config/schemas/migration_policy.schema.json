@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": ["version", "policies"],
+  "properties": {
+    "version": { "type": "integer" },
+    "policies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "required_version"],
+        "properties": {
+          "id": { "type": "string" },
+          "path": { "type": "string" },
+          "required_version": { "type": "integer" }
+        }
+      }
+    }
+  }
+}
