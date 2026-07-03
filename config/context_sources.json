@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "description": "Ordered trusted context sources loaded before planning/execution.",
+  "sources": [
+    {
+      "id": "start_here",
+      "path": "/mnt/gdrive/Jon's Projects/Start Here.md",
+      "required": false
+    },
+    {
+      "id": "the_latest",
+      "path": "/mnt/gdrive/Jon's Projects/The Latest.md",
+      "required": false
+    },
+    {
+      "id": "stack_source_of_truth",
+      "path": "<STACK_ROOT>/STACK_SOURCE_OF_TRUTH.md",
+      "required": false,
+      "_example": "Placeholder pattern: point this at your own environment's canonical source-of-truth doc, then flip required to true once the path is real."
+    },
+    {
+      "id": "deebot_concept",
+      "path": "/mnt/gdrive/Jon's Projects/Projects/Deebot Pantry Clean/10-CONCEPT/DEEBOT_PANTRY_CLEAN_CONCEPT.md",
+      "required": false
+    },
+    {
+      "id": "openclaw_operating_profile",
+      "path": "/opt/stack/services/docs/guides/openclaw_intended_operating_profile.md",
+      "required": true
+    }
+  ]
+}

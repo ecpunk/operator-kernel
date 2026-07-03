@@ -1,0 +1,33 @@
+{
+  "action_id": "portainer_docker_volume_recovery_v1",
+  "lane": "media_incident",
+  "lane_class": "http_service_recovery",
+  "description": "Evidence-driven candidate lane draft from open-ended inspect evidence.",
+  "service": "portainer",
+  "endpoint": "https://<HOST>:<PORT>",
+  "log_tail": 40,
+  "http_ok_prefixes": [
+    "HTTP_2",
+    "HTTP_3"
+  ],
+  "warmup_probe_retries": 4,
+  "warmup_probe_sleep_seconds": 3,
+  "verify_probes": [
+    {
+      "name": "evidence_identity_probe",
+      "command": "curl -sS -k -m 5 https://<HOST>:<PORT>/api/status | head -c 12000",
+      "expected_substring": "Version",
+      "required": true
+    }
+  ],
+  "rollback": [
+    "Restore prior service config snapshot if a config mutation is applied.",
+    "Restart service with known-good compose definition.",
+    "Re-verify endpoint and recent log stability."
+  ],
+  "verify": [
+    "Service container is present and running.",
+    "Service web endpoint responds with healthy HTTP status.",
+    "Recent logs do not show repeating fatal startup error."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "sonarr_no_indexers",
+      "match_any": [
+        "[Warn] FetchAndParseRssService: No available indexers"
+      ],
+      "severity": "medium",
+      "confidence": 0.95,
+      "recommendation": "Sonarr has no active indexers. Validate indexer configuration and API credentials in Sonarr settings, then rerun RSS sync and confirm warnings clear.",
+      "focus_step": "Validate Sonarr indexer configuration and API credentials, then rerun RSS sync and confirm warning count drops to zero.",
+      "doc_target": "STACK_SOURCE_OF_TRUTH.md"
+    },
+    {
+      "id": "sonarr_rss_backlog_followup",
+      "match_any": [
+        "[Warn] FetchAndParseRssService: No available indexers"
+      ],
+      "severity": "low",
+      "confidence": 0.7,
+      "recommendation": "After indexers are restored, run one manual RSS sync and confirm reports found and grabbed counters move from zero.",
+      "focus_step": "Run a manual RSS sync after indexer repair and verify report counters are no longer zero.",
+      "doc_target": "STACK_SOURCE_OF_TRUTH.md"
+    },
+    {
+      "id": "sonarr_housekeeping_note",
+      "match_any": [
+        "[Info] HousekeepingService: Running housecleaning tasks"
+      ],
+      "severity": "low",
+      "confidence": 0.4,
+      "recommendation": "Housekeeping activity observed; keep as informational context unless correlated with latency or errors.",
+      "focus_step": "Review housekeeping timing only if performance degradation is observed.",
+      "doc_target": "STACK_SOURCE_OF_TRUTH.md"
+    }
+  ]
+}
