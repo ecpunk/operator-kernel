@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "enabled": true,
+  "defaults": {
+    "sender": "operator-kernel",
+    "timeout_seconds": 2,
+    "max_attempts": 1,
+    "backoff_seconds": 0,
+    "max_event_seconds": 3,
+    "emit_milestones": false
+  },
+  "routes": [
+    {
+      "name": "discord-primary",
+      "enabled": true,
+      "target": "discord_webhook",
+      "url": "",
+      "url_env": "DISCORD_WEBHOOK_URL",
+      "username": "Operator Kernel",
+      "content_prefix": "[Operator]",
+      "timeout_seconds": 2,
+      "max_attempts": 1,
+      "backoff_seconds": 0,
+      "headers": {},
+      "include_sources": [
+        "operator_ops.run_stage3_operations",
+        "operator_ops.run_stage2_soak_snapshot",
+        "operator_tests.adapter_contract_tests",
+        "operator_tests.stage3_bootstrap_tests",
+        "operator_runtime.main"
+      ],
+      "include_statuses": [
+        "failure"
+      ],
+      "include_events": [],
+      "include_milestones": [],
+      "exclude_run_types": [
+        "test",
+        "drill"
+      ]
+    },
+    {
+      "name": "generic-webhook",
+      "enabled": false,
+      "target": "webhook_json",
+      "url": "",
+      "timeout_seconds": 2,
+      "max_attempts": 1,
+      "backoff_seconds": 0,
+      "headers": {},
+      "include_sources": [],
+      "include_statuses": [],
+      "include_events": [],
+      "include_milestones": []
+    }
+  ]
+}
