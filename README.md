@@ -28,6 +28,11 @@ concepts — observe first, approve explicitly, log proof — as native parts of
 their own runtime. This repository is the complete, runnable articulation of
 the pattern they follow.
 
+The kernel assumes one thing it does not provide: a canonical source of
+truth to hydrate context from. The control-plane side of that pattern is
+published separately as
+[atlas-framework](https://github.com/ecpunk/atlas-framework).
+
 ## The contract
 
 Every task moves through the same six steps, and the mode system makes it
