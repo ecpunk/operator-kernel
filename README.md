@@ -81,6 +81,13 @@ suites.
 
 ## Try it
 
+Point `config/context_sources.json` at documents that exist on your machine
+first. It still lists the context sources of the environment the kernel was
+built in, and one of them is marked `"required": true`; until every required
+source resolves, inspect, propose and execute stop at preflight ("required
+context missing") before any plan is built. Lane validation does not depend on
+it.
+
 ```bash
 git clone <this repo>
 cd operator-kernel
@@ -109,25 +116,36 @@ PYTHONPATH=src python3 src/operator_ops/validate_lane.py --all
 - `src/operator_runtime/` — the inspect/propose/execute flow
 - `src/operator_ops/` — orchestration, reporting, incident tooling
 - `src/operator_tests/` — acceptance, regression, and failure-injection suites
+- `src/operator_notify/` — notification dispatcher (webhook routes from
+  `config/notify.json`)
+- `src/adapters/` — compatibility shims for the voice and mobile adapter
+  stubs that live in `src/operator_runtime/adapters/`
 - `config/` — lanes, catalogs, guardrails, schemas, pricing, notification routes
-- `systemd/` — unit and timer assets for scheduled operation
-- `docs/` — end-user guide and quickstart
+- `systemd/` — unit, timer, and env assets for the scheduled Stage 3
+  operations loop
+- `docs/` — end-user guide and quickstart, lane-authoring guide, and design
+  history
 - `artifacts/` — plans, proofs, reports (generated at runtime; not committed)
 
 ## Configuration and secrets
 
 Nothing sensitive is committed. Notification webhooks are routed through
 environment variables (`config/notify.json` names the variable, e.g.
-`DISCORD_WEBHOOK_URL`; the URL itself never appears in config). Endpoints and
-context-source paths ship as placeholders — point them at your own
-environment before first run.
+`DISCORD_WEBHOOK_URL`; the URL itself never appears in config). Lane
+endpoints ship as localhost defaults or `<HOST>:<PORT>` placeholders. The
+context-source paths (`config/context_sources.json`), the state-writer targets
+(`config/state_writer_targets.json`), and the paths in the systemd unit still
+carry the original environment's layout — point them at your own environment
+before first run.
 
 ## Status
 
 The core contract — inspect, propose, approve, execute, verify, proof — is
-stable and runnable end to end. The surrounding ops and reporting layer is
-extensive and reflects a period of rapid iteration; treat it as a toolbox
-rather than a required surface. Active feature development is paused by
-design: the kernel's governance patterns now live natively in the agent
-environment it was built for, and this repository preserves the reference
-implementation.
+stable and runnable end to end once its context sources are configured. The
+surrounding ops and reporting layer is extensive and reflects a period of
+rapid iteration; treat it as a toolbox rather than a required surface. Active
+feature development is paused by design: the kernel's governance patterns now
+live natively in the agent environment it was built for, and this repository
+preserves the reference implementation. The scheduled Stage 3 operations loop
+under `systemd/` is retired in that environment as well; the units ship as
+reference assets, not as a running deployment.
